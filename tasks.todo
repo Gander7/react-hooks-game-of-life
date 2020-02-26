@@ -4,7 +4,7 @@
 ✔ live with 2/3 neighbours -> live @done(20-02-25 22:24)
 ✔ live with > 3 neighbours -> dead @done(20-02-25 22:24)
 ✔ dead with 3 neighbours -> live @done(20-02-25 22:24)
-☐ memoize cells
+✔ memoize cells @done(20-02-25 22:44)
 ☐ start btn
 ☐ pause btn
 ☐ reset (only when not running)

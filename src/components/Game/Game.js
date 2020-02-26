@@ -55,7 +55,7 @@ const Game = () => {
 
     useInterval(() => {
         evolve()
-    }, 1000)
+    }, 100)
 
     return (
         <div className="gameContainer">
