@@ -5,8 +5,8 @@ import Actions from './Actions'
 import Stats from './Stats'
 
 const Game = () => {
-    const width = 50
-    const height = 30
+    const width = 80
+    const height = 50
 
     return (
         <div className="gameContainer">

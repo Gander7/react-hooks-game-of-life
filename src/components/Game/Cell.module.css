@@ -1,0 +1,15 @@
+.cell {
+    width:10px;
+    height:10px;
+    display:inline-block;
+    margin-left:-1px;
+    margin-bottom:-1px;
+    padding:0
+}
+
+.on {
+    background-color: #379683;
+}
+.off {
+    background-color: #8EE4AF;
+}
