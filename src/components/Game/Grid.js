@@ -3,20 +3,15 @@ import Cell from './Cell'
 
 import styles from './Grid.module.css'
 
-const Grid = ({ width, height, seed }) => {
-    const [ grid, setGrid ] = useState(Array(height).fill().map(() => Array(width).fill({ on: false })))
+const Grid = ({ grid }) => {
 
-    useEffect(() => {
-        setGrid(seed(grid))
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
 
     const renderRows = () => <>
         {grid.map((row, i) => renderRow(row, i))}
     </>
 
     const renderRow = (row, rowNum) => <>
-        {row.map((cell, i) => <Cell y={rowNum} x={i} {...cell} />)}
+        {row.map((cell, i) => <Cell y={rowNum} x={i} on={cell} />)}
         <br />
     </>
 
