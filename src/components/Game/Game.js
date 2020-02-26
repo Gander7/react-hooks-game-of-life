@@ -12,12 +12,11 @@ const Game = () => {
     const [ grid, setGrid ] = useState(Array.from({length: height}, ()=>Array.from({length: width}, () => false)))
     const [ running, setRunning ] = useState(false)
     const [ speed, setSpeed ] = useState(100)
-    const [ density, setDensity ] = useState(60)
 
     const seed = (grid) => {
         let seededArr = grid.map(row => row.slice())
         seededArr = seededArr.map(row => row.map(cell => {
-            return (Math.floor(Math.random() * 100) < density)
+            return (Math.floor(Math.random() * 100) < 40)
         }))
         return seededArr
     }
@@ -65,20 +64,19 @@ const Game = () => {
         setRunning(!running)
     }
 
-    const reset = (newDensity) => {
-        setRunning(false)
-        setDensity(newDensity)
+    const reset = () => {
         setGrid(seed(grid))
         setGeneration(1)
     }
 
+
     return (
         <div className="gameContainer">
             <Actions 
-                isRunning={running} 
                 toggle={toggleRunning} 
-                reset={reset} 
                 setSpeed={setSpeed} 
+                isRunning={running}
+                reset={reset}
             />
             <Grid grid={grid} />
             <Stats generation={generation} speed={speed} />

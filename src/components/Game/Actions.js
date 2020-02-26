@@ -1,31 +1,20 @@
 import React from 'react'
 
-const Actions = ({toggle, isRunning, reset, setSpeed }) => {
-    const playLabel = isRunning ? 'Pause' : 'Play'
+import styles from './Actions.module.css'
 
-    const renderResetActions = () => {
-        if (!isRunning)
-            return <>
-                Reset:<br />
-                <button onClick={() => reset(80)}>Dense</button>
-                <button onClick={() => reset(50)}>Average</button>
-                <button onClick={() => reset(30)}>Sparse</button>
-                </>
-    }
-    
-    const renderSpeedActions = () => {
-        return <>
-            Speed:<br />
-            <button onClick={() => setSpeed(100)}>High</button>
-            <button onClick={() => setSpeed(500)}>Low</button>
-        </>
-    }
+const Actions = ({toggle, isRunning, setSpeed, reset }) => {
+    const playLabel = isRunning ? 'Pause' : 'Play'
+    const css = [styles.btn, styles.activeBtn].join(' ')
+    const resetCSS = (!isRunning)
+        ? css
+        : [styles.btn, styles.readOnlyBtn].join(' ')
 
     return (
         <div>
-            <div><button onClick={() => toggle()}>{playLabel}</button></div>
-            <div>{renderResetActions()}</div>
-            <div>{renderSpeedActions()}</div>
+            <button className={css} onClick={() => toggle()}>{playLabel}</button>
+            <button className={resetCSS} onClick={() => reset()} disabled={isRunning}>Reset</button>
+            <button className={css} onClick={() => setSpeed(100)}>High</button>
+            <button className={css} onClick={() => setSpeed(500)}>Low</button>
         </div>
     )
 }

@@ -7,8 +7,7 @@
 ✔ memoize cells @done(20-02-25 22:44)
 ✔ start btn @done(20-02-25 23:09)
 ✔ pause btn @done(20-02-25 23:09)
-✔ reset (only when not running) @done(20-02-25 23:17)
-☐ styles
+✔ reset (only when not running) @done(20-02-26 00:54)
+✔ styles @done(20-02-26 00:54)
 ✔ speed? @done(20-02-25 23:25)
 ✔ population density @done(20-02-25 23:36)
-☐ refactor
