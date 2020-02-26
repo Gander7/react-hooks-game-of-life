@@ -23,7 +23,7 @@ const Game = () => {
 
     const evolveGrid = (grid) => {
         let newArr = grid.map(row => row.slice())
-         newArr = newArr.map((row, y) => row.map((cell, x) => {
+        newArr = newArr.map((row, y) => row.map((cell, x) => {
             let count = 0
             if (y > 0 && grid[y-1][x]) count++  // above
             if (y > 0 && x > 0 && grid[y-1][x-1]) count++ // top left
@@ -36,7 +36,6 @@ const Game = () => {
             if (y < height-1 && x > 0 && grid[y+1][x-1]) count++ // bottom left
             if (y < height-1 && x < width-1 && grid[y+1][x+1]) count++ // bottom right
 
-            //console.log(`${x}, ${y}: ${count}`)
             if(cell && (count < 2 || count > 3))
                 return false
             if(!cell && count === 3)
@@ -47,12 +46,14 @@ const Game = () => {
     }
 
     const evolve = () => {
-        setGrid(evolveGrid(grid))
+        const newGrid = evolveGrid(grid)
+        setGrid(newGrid)
         setGeneration(generation + 1)
     }
 
     useEffect(() => {
         setGrid(seed(grid))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     useInterval(() => {
@@ -60,23 +61,13 @@ const Game = () => {
             evolve()
     }, speed)
 
-    const toggleRunning = () => {
-        setRunning(!running)
-    }
-
-    const reset = () => {
-        setGrid(seed(grid))
-        setGeneration(1)
-    }
-
-
     return (
         <div className="gameContainer">
             <Actions 
-                toggle={toggleRunning} 
+                toggle={() => setRunning(!running)} 
                 setSpeed={setSpeed} 
                 isRunning={running}
-                reset={reset}
+                reset={() => { setGrid(seed(grid)); setGeneration(1) }}
             />
             <Grid grid={grid} />
             <Stats generation={generation} speed={speed} />

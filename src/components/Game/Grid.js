@@ -10,10 +10,9 @@ const Grid = ({ grid }) => {
         {grid.map((row, i) => renderRow(row, i))}
     </>
 
-    const renderRow = (row, rowNum) => <>
-        {row.map((cell, i) => <Cell y={rowNum} x={i} on={cell} />)}
-        <br />
-    </>
+    const renderRow = (row, y) => <div key={`row-${y}`}>
+        {row.map((cell, x) => <Cell key={`${y}_${x}`} on={cell} />)}
+    </div>
 
     return (
         <div key="grid" className={styles.grid}>

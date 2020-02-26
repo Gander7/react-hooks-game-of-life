@@ -2,10 +2,9 @@ import React from 'react'
 
 import styles from './Cell.module.css'
 
-const Cell = React.memo(({x, y, on}) => {
+const Cell = React.memo(({on}) => {
     const css = on ? styles.on : styles.off 
     return <div 
-        key={`${y}_${x}`}
         className={[styles.cell, css].join(' ')} 
     />
 })
