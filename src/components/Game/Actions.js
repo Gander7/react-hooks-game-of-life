@@ -1,10 +1,11 @@
 import React from 'react'
 
-const Actions = () => {
+const Actions = ({toggle, isRunning}) => {
+    const playLabel = isRunning ? 'Pause' : 'Play'
     return (
-        <>
-            <h2>Actions</h2> 
-        </>
+        <div>
+            <button onClick={() => toggle()}>{playLabel}</button>
+        </div>
     )
 }
 
