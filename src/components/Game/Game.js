@@ -17,7 +17,7 @@ const Game = () => {
     const seed = (grid) => {
         let seededArr = grid.map(row => row.slice())
         seededArr = seededArr.map(row => row.map(cell => {
-            return (Math.floor(Math.random() * 100) > density)
+            return (Math.floor(Math.random() * 100) < density)
         }))
         return seededArr
     }
@@ -72,16 +72,11 @@ const Game = () => {
         setGeneration(1)
     }
 
-    const shouldRenderReset = () => {
-        return !running && generation !== 1
-    }
-
     return (
         <div className="gameContainer">
             <Actions 
                 isRunning={running} 
                 toggle={toggleRunning} 
-                renderReset={shouldRenderReset} 
                 reset={reset} 
                 setSpeed={setSpeed} 
             />
