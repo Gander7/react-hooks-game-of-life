@@ -5,9 +5,9 @@
 ✔ live with > 3 neighbours -> dead @done(20-02-25 22:24)
 ✔ dead with 3 neighbours -> live @done(20-02-25 22:24)
 ✔ memoize cells @done(20-02-25 22:44)
-☐ start btn
-☐ pause btn
-☐ reset (only when not running)
+✔ start btn @done(20-02-25 23:09)
+✔ pause btn @done(20-02-25 23:09)
+✔ reset (only when not running) @done(20-02-25 23:17)
 ☐ styles
-☐ speed?
+✔ speed? @done(20-02-25 23:25)
 ☐ population density

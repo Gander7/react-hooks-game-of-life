@@ -11,6 +11,7 @@ const Game = () => {
     const [ generation, setGeneration ] = useState(1)
     const [ grid, setGrid ] = useState(Array.from({length: height}, ()=>Array.from({length: width}, () => false)))
     const [ running, setRunning ] = useState(false)
+    const [ speed, setSpeed ] = useState(100)
 
     const seed = (grid) => {
         let seededArr = grid.map(row => row.slice())
@@ -57,15 +58,31 @@ const Game = () => {
     useInterval(() => {
         if(running)
             evolve()
-    }, 100)
+    }, speed)
 
     const toggleRunning = () => {
         setRunning(!running)
     }
 
+    const reset = () => {
+        setRunning(false)
+        setGrid(seed(grid))
+        setGeneration(1)
+    }
+
+    const shouldRenderReset = () => {
+        return !running && generation !== 1
+    }
+
     return (
         <div className="gameContainer">
-            <Actions isRunning={running} toggle={toggleRunning}/>
+            <Actions 
+                isRunning={running} 
+                toggle={toggleRunning} 
+                renderReset={shouldRenderReset} 
+                reset={reset} 
+                setSpeed={setSpeed} 
+            />
             <Grid grid={grid} />
             <Stats generation={generation} />
         </div>
