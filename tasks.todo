@@ -1,10 +1,10 @@
-☐ basic start
+✔ seed @done(20-02-25 20:57)
+☐ generation as a pure function
+☐ show generations
 ☐ live with < 2 neighbours -> dead
 ☐ live with 2/3 neighbours -> live
 ☐ live with > 3 neighbours -> dead
 ☐ dead with 3 neighbours -> live
-☐ generation as a pure function
-☐ show generations
 ☐ start
 ☐ pause
 ☐ reset (only when not running)

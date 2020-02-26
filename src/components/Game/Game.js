@@ -8,10 +8,22 @@ const Game = () => {
     const width = 80
     const height = 50
 
+    const seed = (grid) => {
+        let seededArr = grid.map(row => row.slice())
+        seededArr = seededArr.map(row => row.map(cell => {
+            return { on: (Math.floor(Math.random() * 4) === 1)}
+        }))
+        return seededArr
+    }
+
     return (
         <div className="gameContainer">
             <Actions />
-            <Grid width={width} height={height}/>
+            <Grid 
+                width={width} 
+                height={height}
+                seed={seed}
+            />
             <Stats />
         </div>
     )
