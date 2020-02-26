@@ -1,6 +1,5 @@
 ✔ seed @done(20-02-25 20:57)
-☐ generation as a pure function
-☐ show generations
+✔ show generations @done(20-02-25 21:12)
 ☐ live with < 2 neighbours -> dead
 ☐ live with 2/3 neighbours -> live
 ☐ live with > 3 neighbours -> dead

@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Stats = () => {
+const Stats = ({ generation }) => {
     return (
         <h2>
-            Stats
+            Generation: {generation}
         </h2>
     )
 }
